@@ -1,0 +1,31 @@
+<!-- Rodapé -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <h2>DevFreelancer</h2>
+        <p>Soluções em Programação</p>
+        <div class="social-links">
+          <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <div class="link-group" *ngFor="let group of footerLinks">
+          <h3>{{ group.title }}</h3>
+          <ul>
+            <li *ngFor="let item of group.items">
+              <a [href]="item.url">{{ item.label }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {{ currentYear }} DevFreelancer. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>

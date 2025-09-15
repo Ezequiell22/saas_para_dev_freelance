@@ -1,0 +1,99 @@
+// Estilos para o rodapé
+.footer {
+  background-color: var(--secondary-color);
+  color: #fff;
+  padding: 60px 0 0;
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .footer-logo {
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    p {
+      margin-bottom: 20px;
+      opacity: 0.8;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+
+      a {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+
+        &:hover {
+          background-color: var(--primary-color);
+          transform: translateY(-3px);
+        }
+
+        i {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+    }
+
+    .link-group {
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: var(--primary-color);
+      }
+
+      ul li {
+        margin-bottom: 10px;
+
+        a {
+          color: rgba(255, 255, 255, 0.8);
+          transition: var(--transition);
+
+          &:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+}

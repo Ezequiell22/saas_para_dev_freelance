@@ -1,0 +1,25 @@
+<!-- Seção de Preços -->
+<section id="precos" class="pricing section">
+  <div class="container">
+    <h2 class="section-title">{{ sectionTitle }}</h2>
+    
+    <div class="pricing-grid">
+      <div class="pricing-card" *ngFor="let plan of plans" [ngClass]="{'highlighted': plan.highlighted}">
+        <div class="pricing-header">
+          <h3>{{ plan.name }}</h3>
+          <div class="price">{{ plan.price }}</div>
+          <p class="description">{{ plan.description }}</p>
+        </div>
+        
+        <ul class="features">
+          <li *ngFor="let feature of plan.features">
+            <fa-icon [icon]="checkIcon"></fa-icon>
+            <span>{{ feature }}</span>
+          </li>
+        </ul>
+        
+        <a [href]="plan.ctaLink" class="btn">{{ plan.ctaText }}</a>
+      </div>
+    </div>
+  </div>
+</section>

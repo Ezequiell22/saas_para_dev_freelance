@@ -1,0 +1,8 @@
+Este diretório deve conter as seguintes imagens:
+
+- banner-bg.jpg - Imagem de fundo para o banner principal
+- banner-bg.jpg - Imagem para o projeto 1 no carrossel
+- project2.jpg - Imagem para o projeto 2 no carrossel
+- project3.jpg - Imagem para o projeto 3 no carrossel
+
+Substitua estes arquivos por imagens reais para o seu projeto.
