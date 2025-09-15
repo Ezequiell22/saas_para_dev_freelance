@@ -98,105 +98,25 @@ Os arquivos de build serão armazenados no diretório `dist/`.
 
 ### Pré-requisitos para Docker
 - Docker instalado
-- Docker Compose instalado
 
-### Build e Execução com Docker
+### Método Recomendado: Docker Compose
 
-#### Produção
+1. **Configure o arquivo `.env`** (copie do `.env.example` e preencha os valores)
+2. **Execute com Docker Compose**:
+   ```bash
+   docker-compose up -d
+   ```
+
+### Método Manual
+
 ```bash
-# Build da imagem de produção
-npm run docker:build
+# 1. Configure as variáveis de ambiente no .env
 
-# Executar container de produção
-npm run docker:run
-
-# Ou usar Docker Compose (recomendado)
-npm run docker:compose:up
-
-# Verificar logs
-npm run docker:logs
-
-# Parar e remover containers
-npm run docker:compose:down
-```
-
-#### Desenvolvimento com Docker
-```bash
-# Build da imagem de desenvolvimento
-npm run docker:build:dev
-
-# Executar container de desenvolvimento (com hot reload)
-npm run docker:compose:dev
-
-# Parar container de desenvolvimento
-npm run docker:stop:dev
-```
-
-### Scripts Docker Disponíveis
-
-| Script | Descrição |
-|--------|-----------|
-| `docker:build` | Constrói a imagem de produção |
-| `docker:build:dev` | Constrói a imagem de desenvolvimento |
-| `docker:run` | Executa container de produção na porta 80 |
-| `docker:run:dev` | Executa container de desenvolvimento na porta 4200 |
-| `docker:compose:up` | Inicia todos os serviços com Docker Compose |
-| `docker:compose:down` | Para todos os serviços |
-| `docker:compose:dev` | Inicia ambiente de desenvolvimento |
-| `docker:stop` | Para e remove container de produção |
-| `docker:stop:dev` | Para e remove container de desenvolvimento |
-| `docker:logs` | Visualiza logs do container |
-| `docker:clean` | Limpa recursos Docker não utilizados |
-
-### Configuração de Produção
-
-1. **Variáveis de Ambiente**: Certifique-se de que o arquivo `.env` está configurado corretamente
-2. **Build Otimizado**: O Dockerfile usa multi-stage build para otimizar o tamanho da imagem
-3. **Nginx**: Configurado para servir a aplicação Angular com otimizações de cache e compressão
-4. **Portas**: 
-   - Produção: porta 80
-   - Desenvolvimento: porta 4200
-
-### Deploy em Produção
-
-#### Usando Docker Compose (Recomendado)
-```bash
-# 1. Clone o repositório
-git clone <seu-repositorio>
-cd freelancer
-
-# 2. Configure as variáveis de ambiente
-cp .env.example .env
-# Edite o arquivo .env com suas credenciais do EmailJS
-
-# 3. Inicie a aplicação (o Docker Compose lerá automaticamente o .env)
-docker-compose up -d
-```
-
-#### Deploy Manual com Docker
-```bash
-# 1. Configure as variáveis de ambiente
-cp .env.example .env
-# Edite o arquivo .env com suas credenciais
-
-# 2. Build da imagem Docker (passando as variáveis de ambiente)
-npm run docker:build
-
-# 3. Execute o container
-npm run docker:run
-```
-
-#### Deploy Manual Alternativo
-```bash
-# 1. Build da aplicação localmente
-npm run build:prod
-
-# 2. Build da imagem Docker com build args
-docker build \
-  --build-arg EMAILJS_PUBLIC_KEY=sua_chave_publica \
-  --build-arg EMAILJS_SERVICE_ID=seu_service_id \
-  --build-arg EMAILJS_TEMPLATE_ID=seu_template_id \
-  --build-arg EMAILJS_TO_EMAIL=seu_email@exemplo.com \
+# 2. Construa a imagem (Windows)
+docker build --build-arg EMAILJS_PUBLIC_KEY=%EMAILJS_PUBLIC_KEY% ^
+  --build-arg EMAILJS_SERVICE_ID=%EMAILJS_SERVICE_ID% ^
+  --build-arg EMAILJS_TEMPLATE_ID=%EMAILJS_TEMPLATE_ID% ^
+  --build-arg EMAILJS_TO_EMAIL=%EMAILJS_TO_EMAIL% ^
   -t freelancer-app .
 
 # 3. Execute o container
@@ -210,6 +130,69 @@ O build Docker requer as variáveis de ambiente do EmailJS durante a compilaçã
 1. **Ter o arquivo `.env` configurado** antes de executar `docker-compose up`
 2. **Ou passar as variáveis como build args** no comando docker build
 3. **As variáveis são necessárias no momento do build**, não apenas na execução
+
+## 🌐 Deploy na Vercel
+
+### Pré-requisitos
+- Conta na [Vercel](https://vercel.com)
+- Repositório Git (GitHub, GitLab, Bitbucket)
+
+### Configuração Rápida
+
+1. **Conecte seu repositório à Vercel**:
+   - Acesse [vercel.com](https://vercel.com)
+   - Clique em "New Project"
+   - Importe seu repositório
+
+2. **Configure as variáveis de ambiente**:
+   - No dashboard da Vercel, vá em Settings > Environment Variables
+   - Adicione as seguintes variáveis (valores do seu `.env` local):
+     ```
+     EMAILJS_PUBLIC_KEY=sua_chave_publica
+     EMAILJS_SERVICE_ID=seu_service_id
+     EMAILJS_TEMPLATE_ID=seu_template_id
+     EMAILJS_TO_EMAIL=seu_email_de_destino
+     ```
+   - ⚠️ **Importante**: Marque todas as opções (Production, Preview, Development)
+
+3. **Deploy automático**:
+   - A Vercel detectará automaticamente o `vercel.json`
+   - O deploy será feito automaticamente a cada push
+
+### Configuração Manual via CLI
+
+```bash
+# 1. Instale a CLI da Vercel
+npm i -g vercel
+
+# 2. Faça login
+vercel login
+
+# 3. Configure o projeto
+vercel
+
+# 4. Configure as variáveis de ambiente
+vercel env add EMAILJS_PUBLIC_KEY
+vercel env add EMAILJS_SERVICE_ID
+vercel env add EMAILJS_TEMPLATE_ID
+vercel env add EMAILJS_TO_EMAIL
+
+# 5. Deploy
+vercel --prod
+```
+
+### Arquivos de Configuração
+
+O projeto já inclui:
+- `vercel.json` - Configuração de build e rotas
+- `.env.vercel` - Template das variáveis de ambiente
+- Scripts otimizados no `package.json`
+
+### ⚠️ Importante para Vercel
+
+- As variáveis de ambiente são **obrigatórias** para o funcionamento do EmailJS
+- Configure todas as variáveis antes do primeiro deploy
+- A Vercel fará rebuild automático a cada push no repositório
 
 ## 🎨 Personalização
 

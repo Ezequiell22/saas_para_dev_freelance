@@ -6,6 +6,7 @@
     "start": "node generate-config.js && ng serve",
     "build": "node generate-config.js && ng build",
     "build:prod": "node generate-config.js && ng build --configuration production",
+    "build:vercel": "node generate-config.js && ng build --configuration production",
     "watch": "node generate-config.js && ng build --watch --configuration development",
     "setup-env": "node generate-config.js",
     "generate-config": "node generate-config.js",

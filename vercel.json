@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/freelancer"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "buildCommand": "npm run build:prod",
+  "outputDirectory": "dist/freelancer",
+  "installCommand": "npm ci",
+  "env": {
+    "EMAILJS_SERVICE_ID": "@emailjs_service_id",
+    "EMAILJS_TEMPLATE_ID": "@emailjs_template_id", 
+    "EMAILJS_PUBLIC_KEY": "@emailjs_public_key",
+    "EMAILJS_TO_EMAIL": "@emailjs_to_email"
+  }
+}

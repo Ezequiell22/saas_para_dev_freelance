@@ -45,6 +45,10 @@ Thumbs.db
 .env
 .env.*
 !.env.example
+!.env.vercel
+
+# Vercel
+.vercel
 
 # Angular environment files with actual values
 # Only template files should be committed
