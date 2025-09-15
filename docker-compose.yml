@@ -1,0 +1,41 @@
+services:
+  freelancer-app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - EMAILJS_PUBLIC_KEY=${EMAILJS_PUBLIC_KEY}
+        - EMAILJS_SERVICE_ID=${EMAILJS_SERVICE_ID}
+        - EMAILJS_TEMPLATE_ID=${EMAILJS_TEMPLATE_ID}
+        - EMAILJS_TO_EMAIL=${EMAILJS_TO_EMAIL}
+    ports:
+      - "80:80"
+    networks:
+      - freelancer-network
+    restart: unless-stopped
+
+  freelancer-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4200:4200"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - EMAILJS_PUBLIC_KEY=${EMAILJS_PUBLIC_KEY}
+      - EMAILJS_SERVICE_ID=${EMAILJS_SERVICE_ID}
+      - EMAILJS_TEMPLATE_ID=${EMAILJS_TEMPLATE_ID}
+      - EMAILJS_TO_EMAIL=${EMAILJS_TO_EMAIL}
+    networks:
+      - freelancer-network
+    profiles:
+      - dev
+
+networks:
+  freelancer-network:
+    driver: bridge
+
+# Para usar em produção: docker-compose up -d
+# Para usar em desenvolvimento: docker-compose --profile dev up -d

@@ -94,6 +94,123 @@ npm run build
 
 Os arquivos de build serão armazenados no diretório `dist/`.
 
+## 🐳 Docker & Produção
+
+### Pré-requisitos para Docker
+- Docker instalado
+- Docker Compose instalado
+
+### Build e Execução com Docker
+
+#### Produção
+```bash
+# Build da imagem de produção
+npm run docker:build
+
+# Executar container de produção
+npm run docker:run
+
+# Ou usar Docker Compose (recomendado)
+npm run docker:compose:up
+
+# Verificar logs
+npm run docker:logs
+
+# Parar e remover containers
+npm run docker:compose:down
+```
+
+#### Desenvolvimento com Docker
+```bash
+# Build da imagem de desenvolvimento
+npm run docker:build:dev
+
+# Executar container de desenvolvimento (com hot reload)
+npm run docker:compose:dev
+
+# Parar container de desenvolvimento
+npm run docker:stop:dev
+```
+
+### Scripts Docker Disponíveis
+
+| Script | Descrição |
+|--------|-----------|
+| `docker:build` | Constrói a imagem de produção |
+| `docker:build:dev` | Constrói a imagem de desenvolvimento |
+| `docker:run` | Executa container de produção na porta 80 |
+| `docker:run:dev` | Executa container de desenvolvimento na porta 4200 |
+| `docker:compose:up` | Inicia todos os serviços com Docker Compose |
+| `docker:compose:down` | Para todos os serviços |
+| `docker:compose:dev` | Inicia ambiente de desenvolvimento |
+| `docker:stop` | Para e remove container de produção |
+| `docker:stop:dev` | Para e remove container de desenvolvimento |
+| `docker:logs` | Visualiza logs do container |
+| `docker:clean` | Limpa recursos Docker não utilizados |
+
+### Configuração de Produção
+
+1. **Variáveis de Ambiente**: Certifique-se de que o arquivo `.env` está configurado corretamente
+2. **Build Otimizado**: O Dockerfile usa multi-stage build para otimizar o tamanho da imagem
+3. **Nginx**: Configurado para servir a aplicação Angular com otimizações de cache e compressão
+4. **Portas**: 
+   - Produção: porta 80
+   - Desenvolvimento: porta 4200
+
+### Deploy em Produção
+
+#### Usando Docker Compose (Recomendado)
+```bash
+# 1. Clone o repositório
+git clone <seu-repositorio>
+cd freelancer
+
+# 2. Configure as variáveis de ambiente
+cp .env.example .env
+# Edite o arquivo .env com suas credenciais do EmailJS
+
+# 3. Inicie a aplicação (o Docker Compose lerá automaticamente o .env)
+docker-compose up -d
+```
+
+#### Deploy Manual com Docker
+```bash
+# 1. Configure as variáveis de ambiente
+cp .env.example .env
+# Edite o arquivo .env com suas credenciais
+
+# 2. Build da imagem Docker (passando as variáveis de ambiente)
+npm run docker:build
+
+# 3. Execute o container
+npm run docker:run
+```
+
+#### Deploy Manual Alternativo
+```bash
+# 1. Build da aplicação localmente
+npm run build:prod
+
+# 2. Build da imagem Docker com build args
+docker build \
+  --build-arg EMAILJS_PUBLIC_KEY=sua_chave_publica \
+  --build-arg EMAILJS_SERVICE_ID=seu_service_id \
+  --build-arg EMAILJS_TEMPLATE_ID=seu_template_id \
+  --build-arg EMAILJS_TO_EMAIL=seu_email@exemplo.com \
+  -t freelancer-app .
+
+# 3. Execute o container
+docker run -d -p 80:80 --name freelancer-container freelancer-app
+```
+
+### ⚠️ Importante para Docker
+
+O build Docker requer as variáveis de ambiente do EmailJS durante a compilação. Certifique-se de:
+
+1. **Ter o arquivo `.env` configurado** antes de executar `docker-compose up`
+2. **Ou passar as variáveis como build args** no comando docker build
+3. **As variáveis são necessárias no momento do build**, não apenas na execução
+
 ## 🎨 Personalização
 
 ### Estilos
