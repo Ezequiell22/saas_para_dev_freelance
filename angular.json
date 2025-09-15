@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "freelancer-angular:build:production"
+              "buildTarget": "freelancer-angular:build:production"
             },
             "development": {
-              "browserTarget": "freelancer-angular:build:development"
+              "buildTarget": "freelancer-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
