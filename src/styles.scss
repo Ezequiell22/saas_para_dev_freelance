@@ -4,15 +4,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary-color: #3498db;
+  --primary-color: #667eea;
   --secondary-color: #2c3e50;
-  --accent-color: #e74c3c;
+  --accent-color: #764ba2;
   --light-color: #f8f9fa;
   --dark-color: #343a40;
   --text-color: #333;
-  --border-radius: 5px;
-  --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  --transition: all 0.3s ease;
+  --border-radius: 15px;
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --primary-rgb: 102, 126, 234;
 }
 
 * {
@@ -21,11 +22,16 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
   color: var(--text-color);
   background-color: #fff;
+  padding-top: 80px; /* Compensar header fixo */
 }
 
 a {

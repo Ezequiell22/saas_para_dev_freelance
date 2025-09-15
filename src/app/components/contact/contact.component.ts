@@ -22,8 +22,19 @@ export class ContactComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.initEmailJS();
     this.createForm();
+    this.loadConfigAndInitEmailJS();
+  }
+
+  loadConfigAndInitEmailJS() {
+    this.configService.loadConfig().subscribe({
+      next: (config) => {
+        this.initEmailJS();
+      },
+      error: (error) => {
+        console.error('Erro ao carregar configuração:', error);
+      }
+    });
   }
 
   initEmailJS() {

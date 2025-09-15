@@ -1,20 +1,17 @@
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { ServicesComponent } from './components/services/services.component';
-import { PricingComponent } from './components/pricing/pricing.component';
-import { CarouselComponent } from './components/carousel/carousel.component';
+import { ProjectsComponent } from './components/project/projects.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ConfigService } from './services/config.service';
-import { initializeApp } from './app-config.initializer';
 
 @NgModule({
   declarations: [
@@ -22,28 +19,18 @@ import { initializeApp } from './app-config.initializer';
     HeaderComponent,
     BannerComponent,
     ServicesComponent,
-    PricingComponent,
-    CarouselComponent,
+    ProjectsComponent,
     ContactComponent,
     FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
-  providers: [
-    ConfigService,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initializeApp,
-      deps: [ConfigService],
-      multi: true
-    }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

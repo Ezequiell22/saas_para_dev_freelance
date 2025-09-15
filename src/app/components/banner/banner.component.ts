@@ -6,8 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./banner.component.scss']
 })
 export class BannerComponent {
-  title = 'Desenvolvimento de Software Profissional';
-  subtitle = 'Soluções personalizadas para suas necessidades de programação';
-  ctaText = 'Solicite um Orçamento';
-  ctaLink = '#contato';
+  title = 'Transforme suas ideias em realidade digital';
+
+  // Método para scroll suave
+  scrollToSection(sectionId: string): void {
+    const element = document.getElementById(sectionId.replace('#', ''));
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      });
+    }
+  }
 }

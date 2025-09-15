@@ -48,6 +48,11 @@ Thumbs.db
 
 # Angular environment files with actual values
 # Only template files should be committed
+/src/environments/environment.ts
+/src/environments/environment.prod.ts
+
+# EmailJS configuration with real credentials
+/src/assets/config/app-config.json
 src/environments/*.local.ts
 
 # Generated configuration files with sensitive data

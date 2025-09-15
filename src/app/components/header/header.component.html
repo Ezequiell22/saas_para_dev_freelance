@@ -8,7 +8,7 @@
     <nav class="nav">
       <ul>
         <li *ngFor="let item of navItems">
-          <a [href]="item.link">{{ item.label }}</a>
+          <a (click)="scrollToSection(item.link)" style="cursor: pointer;">{{ item.label }}</a>
         </li>
       </ul>
     </nav>
