@@ -44,10 +44,16 @@
               placeholder="Seu Nome" 
               [ngClass]="{'invalid': nameControl?.invalid && nameControl?.touched}"
             >
-            <div class="error-message" *ngIf="nameControl?.invalid && nameControl?.touched">
-              <span *ngIf="nameControl?.errors?.['required']">Nome é obrigatório</span>
-              <span *ngIf="nameControl?.errors?.['minlength']">Nome deve ter pelo menos 3 caracteres</span>
+            @if (nameControl?.invalid && nameControl?.touched) {
+            <div class="error-message">
+              @if (nameControl?.errors?.['required']) {
+              <span>Nome é obrigatório</span>
+              }
+              @if (nameControl?.errors?.['minlength']) {
+              <span>Nome deve ter pelo menos 3 caracteres</span>
+              }
             </div>
+            }
           </div>
           
           <div class="form-group">
@@ -57,10 +63,16 @@
               placeholder="Seu Email" 
               [ngClass]="{'invalid': emailControl?.invalid && emailControl?.touched}"
             >
-            <div class="error-message" *ngIf="emailControl?.invalid && emailControl?.touched">
-              <span *ngIf="emailControl?.errors?.['required']">Email é obrigatório</span>
-              <span *ngIf="emailControl?.errors?.['email']">Email inválido</span>
+            @if (emailControl?.invalid && emailControl?.touched) {
+            <div class="error-message">
+              @if (emailControl?.errors?.['required']) {
+              <span>Email é obrigatório</span>
+              }
+              @if (emailControl?.errors?.['email']) {
+              <span>Email inválido</span>
+              }
             </div>
+            }
           </div>
           
           <div class="form-group">
@@ -70,9 +82,13 @@
               placeholder="Assunto" 
               [ngClass]="{'invalid': subjectControl?.invalid && subjectControl?.touched}"
             >
-            <div class="error-message" *ngIf="subjectControl?.invalid && subjectControl?.touched">
-              <span *ngIf="subjectControl?.errors?.['required']">Assunto é obrigatório</span>
+            @if (subjectControl?.invalid && subjectControl?.touched) {
+            <div class="error-message">
+              @if (subjectControl?.errors?.['required']) {
+              <span>Assunto é obrigatório</span>
+              }
             </div>
+            }
           </div>
           
           <div class="form-group">
@@ -82,24 +98,38 @@
               rows="5"
               [ngClass]="{'invalid': messageControl?.invalid && messageControl?.touched}"
             ></textarea>
-            <div class="error-message" *ngIf="messageControl?.invalid && messageControl?.touched">
-              <span *ngIf="messageControl?.errors?.['required']">Mensagem é obrigatória</span>
-              <span *ngIf="messageControl?.errors?.['minlength']">Mensagem deve ter pelo menos 10 caracteres</span>
+            @if (messageControl?.invalid && messageControl?.touched) {
+            <div class="error-message">
+              @if (messageControl?.errors?.['required']) {
+              <span>Mensagem é obrigatória</span>
+              }
+              @if (messageControl?.errors?.['minlength']) {
+              <span>Mensagem deve ter pelo menos 10 caracteres</span>
+              }
             </div>
+            }
           </div>
           
           <button type="submit" class="btn" [disabled]="isSubmitting">
-            <span *ngIf="!isSubmitting">Enviar Mensagem</span>
-            <span *ngIf="isSubmitting">Enviando...</span>
+            @if (!isSubmitting) {
+            <span>Enviar Mensagem</span>
+            }
+            @if (isSubmitting) {
+            <span>Enviando...</span>
+            }
           </button>
           
-          <div class="alert success" *ngIf="submitSuccess">
+          @if (submitSuccess) {
+          <div class="alert success">
             Mensagem enviada com sucesso! Entraremos em contato em breve.
           </div>
+          }
           
-          <div class="alert error" *ngIf="submitError">
+          @if (submitError) {
+          <div class="alert error">
             {{ errorMessage }}
           </div>
+          }
         </form>
       </div>
     </div>

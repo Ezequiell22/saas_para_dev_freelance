@@ -7,9 +7,11 @@
     </div>
     <nav class="nav">
       <ul>
-        <li *ngFor="let item of navItems">
+        @for (item of navItems; track item.link) {
+        <li>
           <a (click)="scrollToSection(item.link)" style="cursor: pointer;">{{ item.label }}</a>
         </li>
+        }
       </ul>
     </nav>
   </div>

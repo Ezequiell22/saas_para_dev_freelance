@@ -4,13 +4,15 @@
     <h2 class="section-title">{{ sectionTitle }}</h2>
     
     <div class="services-grid">
-      <div class="service-card" *ngFor="let service of services">
+      @for (service of services; track service.title) {
+      <div class="service-card">
         <div class="service-icon">
           <fa-icon [icon]="service.icon" size="2x"></fa-icon>
         </div>
         <h3>{{ service.title }}</h3>
         <p>{{ service.description }}</p>
       </div>
+      }
     </div>
   </div>
 </section>
