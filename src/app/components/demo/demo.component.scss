@@ -8,404 +8,6 @@
     margin: 0 auto;
     padding: 0 20px;
   }
-
-// Estilos para Demo Delphi SPED
-.delphi-sped-demo {
-  .delphi-workflow {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-  }
-  
-  .delphi-app {
-    flex: 2;
-    min-width: 400px;
-    
-    .app-window {
-      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      animation: windowGlow 3s ease-in-out infinite alternate;
-      
-      .window-header {
-        background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-        padding: 10px 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        
-        .window-title {
-          color: white;
-          font-weight: 600;
-          font-size: 1rem;
-        }
-        
-        .window-controls {
-          display: flex;
-          gap: 8px;
-          
-          .control {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            
-            &.minimize { background: #f39c12; color: #d68910; }
-            &.maximize { background: #27ae60; color: #229954; }
-            &.close { background: #e74c3c; color: #c0392b; }
-          }
-        }
-      }
-      
-      .app-content {
-        padding: 20px;
-        
-        .toolbar {
-          display: flex;
-          gap: 10px;
-          margin-bottom: 20px;
-          
-          button {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            
-            &.btn-primary {
-              background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-              color: white;
-              animation: buttonPulse 2s ease-in-out infinite;
-              
-              &:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
-              }
-            }
-            
-            &.btn-secondary {
-              background: #7f8c8d;
-              color: white;
-              
-              &:hover {
-                background: #95a5a6;
-                transform: translateY(-1px);
-              }
-            }
-          }
-        }
-        
-        .processing-area {
-          .progress-section {
-            margin-bottom: 20px;
-            
-            .progress-label {
-              color: #ecf0f1;
-              margin-bottom: 8px;
-              font-weight: 500;
-            }
-            
-            .progress-bar {
-              background: #34495e;
-              height: 8px;
-              border-radius: 4px;
-              overflow: hidden;
-              margin-bottom: 5px;
-              
-              .progress-fill {
-                background: linear-gradient(90deg, #e74c3c 0%, #f39c12 50%, #27ae60 100%);
-                height: 100%;
-                width: 73%;
-                border-radius: 4px;
-                animation: progressAnimation 3s ease-in-out infinite;
-              }
-            }
-            
-            .progress-text {
-              color: #bdc3c7;
-              font-size: 0.9rem;
-              text-align: right;
-            }
-          }
-          
-          .log-area {
-            background: #1a252f;
-            border-radius: 5px;
-            padding: 15px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            max-height: 150px;
-            overflow-y: auto;
-            
-            .log-line {
-              margin-bottom: 5px;
-              padding: 2px 0;
-              animation: logFadeIn 0.5s ease-out;
-              
-              &.success { color: #27ae60; }
-              &.info { color: #3498db; }
-              &.processing { 
-                color: #f39c12; 
-                animation: logBlink 1.5s ease-in-out infinite;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  
-  .database-section {
-    flex: 1;
-    min-width: 300px;
-    
-    .sql-server {
-      background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
-      border-radius: 10px;
-      padding: 20px;
-      color: white;
-      box-shadow: 0 10px 30px rgba(142, 68, 173, 0.3);
-      animation: dbPulse 4s ease-in-out infinite;
-      
-      .db-header {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 20px;
-        
-        .db-icon {
-          font-size: 2rem;
-        }
-        
-        .db-name {
-          font-size: 1.3rem;
-          font-weight: 600;
-          flex: 1;
-        }
-        
-        .db-status {
-          background: #27ae60;
-          padding: 4px 12px;
-          border-radius: 15px;
-          font-size: 0.8rem;
-          font-weight: 500;
-          animation: statusBlink 2s ease-in-out infinite;
-        }
-      }
-      
-      .db-metrics {
-        margin-bottom: 20px;
-        
-        .metric {
-          display: flex;
-          justify-content: space-between;
-          margin-bottom: 8px;
-          padding: 5px 0;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-          
-          .metric-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-          }
-          
-          .metric-value {
-            font-weight: 600;
-            color: #f1c40f;
-            animation: metricFlicker 2s ease-in-out infinite;
-          }
-        }
-      }
-      
-      .query-preview {
-        background: rgba(0, 0, 0, 0.3);
-        border-radius: 5px;
-        padding: 15px;
-        
-        .query-header {
-          font-weight: 600;
-          margin-bottom: 10px;
-          color: #f1c40f;
-        }
-        
-        .query-code {
-          font-family: 'Courier New', monospace;
-          font-size: 0.8rem;
-          line-height: 1.4;
-          color: #ecf0f1;
-          animation: codeTypewriter 4s ease-in-out infinite;
-        }
-      }
-    }
-  }
-  
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    
-    .feature-card {
-      background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-      color: white;
-      transition: all 0.3s ease;
-      animation: cardFloat 3s ease-in-out infinite;
-      
-      &:nth-child(1) { animation-delay: 0s; }
-      &:nth-child(2) { animation-delay: 0.5s; }
-      &:nth-child(3) { animation-delay: 1s; }
-      &:nth-child(4) { animation-delay: 1.5s; }
-      
-      &:hover {
-        transform: translateY(-10px) scale(1.05);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-      }
-      
-      .feature-icon {
-        font-size: 2.5rem;
-        margin-bottom: 15px;
-        animation: iconSpin 4s linear infinite;
-      }
-      
-      .feature-title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-bottom: 10px;
-        color: #3498db;
-      }
-      
-      .feature-desc {
-        font-size: 0.9rem;
-        opacity: 0.9;
-        line-height: 1.4;
-      }
-    }
-  }
-}
-
-// Animações específicas do Delphi Demo
-@keyframes windowGlow {
-  0%, 100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
-  50% { box-shadow: 0 15px 40px rgba(52, 152, 219, 0.4); }
-}
-
-@keyframes buttonPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-@keyframes progressAnimation {
-  0% { width: 73%; }
-  50% { width: 85%; }
-  100% { width: 73%; }
-}
-
-@keyframes logFadeIn {
-  from { opacity: 0; transform: translateX(-10px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes logBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-@keyframes dbPulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(142, 68, 173, 0.3); }
-  50% { transform: scale(1.02); box-shadow: 0 15px 40px rgba(142, 68, 173, 0.5); }
-}
-
-@keyframes statusBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
-
-@keyframes metricFlicker {
-  0%, 100% { color: #f1c40f; }
-  25% { color: #e67e22; }
-  50% { color: #e74c3c; }
-  75% { color: #27ae60; }
-}
-
-@keyframes codeTypewriter {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
-}
-
-@keyframes cardFloat {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
-}
-
-@keyframes iconSpin {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(5deg); }
-  50% { transform: rotate(0deg); }
-  75% { transform: rotate(-5deg); }
-  100% { transform: rotate(0deg); }
-}
-
-// Responsividade
-@media (max-width: 768px) {
-  .demo-section {
-    padding: 40px 0;
-    
-    .section-title {
-      font-size: 2rem;
-    }
-  }
-  
-  .demo-box {
-    padding: 2rem 1rem;
-    
-    .demo-header h3 {
-      font-size: 1.5rem;
-    }
-  }
-  
-  .audit-demo .demo-animation {
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  .erp-demo .integration-flow {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .connection-flow .flow-arrow {
-    width: 150px;
-    transform: rotate(90deg);
-    margin: 1rem 0;
-  }
-  
-  .delphi-sped-demo {
-    .delphi-workflow {
-      flex-direction: column;
-    }
-    
-    .delphi-app {
-      min-width: auto;
-    }
-    
-    .database-section {
-      min-width: auto;
-    }
-    
-    .features-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-}
   
   .section-title {
     text-align: center;
@@ -450,7 +52,257 @@
   }
 }
 
-// Animações do Aplicativo de Auditoria
+/* Delphi SPED Demo */
+.delphi-sped-demo {
+  .delphi-workflow {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .delphi-app {
+    flex: 2;
+    min-width: 400px;
+    
+    .app-window {
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      
+      .window-header {
+        background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        padding: 10px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        .window-title {
+          color: white;
+          font-weight: 600;
+          font-size: 1rem;
+        }
+        
+        .window-controls {
+          display: flex;
+          gap: 8px;
+          
+          .control {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            
+            &.minimize { background: #f39c12; }
+            &.maximize { background: #27ae60; }
+            &.close { background: #e74c3c; }
+          }
+        }
+      }
+      
+      .app-content {
+        padding: 20px;
+        
+        .toolbar {
+          display: flex;
+          gap: 10px;
+          margin-bottom: 20px;
+          
+          button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            
+            &.btn-primary {
+              background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+              color: white;
+            }
+            
+            &.btn-secondary {
+              background: #7f8c8d;
+              color: white;
+            }
+          }
+        }
+        
+        .processing-area {
+          .progress-section {
+            margin-bottom: 20px;
+            
+            .progress-label {
+              color: #ecf0f1;
+              margin-bottom: 8px;
+              font-weight: 500;
+            }
+            
+            .progress-bar {
+              background: #34495e;
+              height: 8px;
+              border-radius: 4px;
+              overflow: hidden;
+              margin-bottom: 5px;
+              
+              .progress-fill {
+                background: linear-gradient(90deg, #e74c3c 0%, #f39c12 50%, #27ae60 100%);
+                height: 100%;
+                width: 73%;
+                border-radius: 4px;
+              }
+            }
+            
+            .progress-text {
+              color: #bdc3c7;
+              font-size: 0.9rem;
+              text-align: right;
+            }
+          }
+          
+          .log-area {
+            background: #1a252f;
+            border-radius: 5px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            max-height: 150px;
+            overflow-y: auto;
+            
+            .log-line {
+              margin-bottom: 5px;
+              padding: 2px 0;
+              
+              &.success { color: #27ae60; }
+              &.info { color: #3498db; }
+              &.processing { color: #f39c12; }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .database-section {
+    flex: 1;
+    min-width: 300px;
+    
+    .sql-server {
+      background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+      border-radius: 10px;
+      padding: 20px;
+      color: white;
+      box-shadow: 0 10px 30px rgba(142, 68, 173, 0.3);
+      
+      .db-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        
+        .db-icon {
+          font-size: 2rem;
+        }
+        
+        .db-name {
+          font-size: 1.3rem;
+          font-weight: 600;
+          flex: 1;
+        }
+        
+        .db-status {
+          background: #27ae60;
+          padding: 4px 12px;
+          border-radius: 15px;
+          font-size: 0.8rem;
+          font-weight: 500;
+        }
+      }
+      
+      .db-metrics {
+        margin-bottom: 20px;
+        
+        .metric {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 8px;
+          padding: 5px 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          
+          .metric-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+          }
+          
+          .metric-value {
+            font-weight: 600;
+            color: #f1c40f;
+          }
+        }
+      }
+      
+      .query-preview {
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        padding: 15px;
+        
+        .query-header {
+          font-weight: 600;
+          margin-bottom: 10px;
+          color: #f1c40f;
+        }
+        
+        .query-code {
+          font-family: 'Courier New', monospace;
+          font-size: 0.8rem;
+          line-height: 1.4;
+          color: #ecf0f1;
+        }
+      }
+    }
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    
+    .feature-card {
+      background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-10px) scale(1.05);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      }
+      
+      .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+      
+      .feature-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #3498db;
+      }
+      
+      .feature-desc {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        line-height: 1.4;
+      }
+    }
+  }
+}
+
+/* Audit Demo */
 .audit-demo {
   .demo-animation {
     display: flex;
@@ -468,7 +320,6 @@
     padding: 20px;
     position: relative;
     box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
-    animation: phoneFloat 3s ease-in-out infinite;
     
     .phone-screen {
       width: 100%;
@@ -502,7 +353,6 @@
         align-items: center;
         justify-content: center;
         font-size: 0.8rem;
-        animation: pulse 2s infinite;
       }
     }
     
@@ -528,30 +378,26 @@
     
     .product-list {
       .product-item {
-          background: var(--white-color);
-          border-radius: 15px;
-          padding: 15px;
-          margin-bottom: 10px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          animation: slideInUp 0.5s ease-out;
-          animation-fill-mode: both;
-        
-        &.controlled { animation-delay: 0.1s; }
-        &.warning { animation-delay: 0.2s; }
-        &.ok { animation-delay: 0.3s; }
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        padding: 15px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         
         .product-info {
           .product-name {
             font-weight: 600;
-            color: var(--text-color);
+            color: #ecf0f1;
             margin-bottom: 5px;
           }
           
           .product-code {
             font-size: 0.8rem;
-            color: var(--secondary-color);
+            color: #bdc3c7;
           }
         }
         
@@ -591,7 +437,6 @@
       align-items: center;
       justify-content: center;
       box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
-      animation: scanPulse 2s infinite;
       
       .scan-icon {
         font-size: 1.5rem;
@@ -609,13 +454,6 @@
       gap: 15px;
       padding: 15px 0;
       border-bottom: 1px solid #eee;
-      animation: fadeInRight 0.6s ease-out;
-      animation-fill-mode: both;
-      
-      &:nth-child(1) { animation-delay: 0.4s; }
-      &:nth-child(2) { animation-delay: 0.5s; }
-      &:nth-child(3) { animation-delay: 0.6s; }
-      &:nth-child(4) { animation-delay: 0.7s; }
       
       .feature-icon {
         font-size: 1.5rem;
@@ -632,7 +470,7 @@
   }
 }
 
-// Animações do Sistema ERP-iFood
+/* ERP Demo */
 .erp-demo {
   .integration-flow {
     display: flex;
@@ -650,11 +488,9 @@
     border-radius: 15px;
     text-align: center;
     min-width: 200px;
-    animation: systemPulse 4s ease-in-out infinite;
     
     &.ifood-system {
       background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
-      animation-delay: 2s;
     }
     
     .system-icon {
@@ -705,7 +541,6 @@
         height: 3px;
         background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
         position: relative;
-        animation: dataFlow 2s linear infinite;
         
         &::after {
           content: '';
@@ -721,8 +556,6 @@
       }
       
       &.reverse .arrow-line {
-        animation-direction: reverse;
-        
         &::after {
           left: -10px;
           right: auto;
@@ -745,10 +578,6 @@
           padding: 3px 8px;
           border-radius: 10px;
           font-size: 0.7rem;
-          animation: packetFloat 1.5s ease-in-out infinite;
-          
-          &:nth-child(2) { animation-delay: 0.3s; }
-          &:nth-child(3) { animation-delay: 0.6s; }
         }
       }
     }
@@ -764,7 +593,6 @@
       .middleware-icon {
         font-size: 2rem;
         margin-bottom: 0.5rem;
-        animation: spin 3s linear infinite;
       }
       
       .middleware-name {
@@ -777,133 +605,50 @@
           padding: 3px 0;
           font-size: 0.8rem;
           opacity: 0.8;
-          animation: fadeInOut 3s ease-in-out infinite;
-          
-          &:nth-child(2) { animation-delay: 1s; }
-          &:nth-child(3) { animation-delay: 2s; }
         }
       }
     }
   }
   
-  .metrics-dashboard {
+  .metrics-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1.5rem;
     
     .metric-card {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       color: white;
       padding: 2rem 1rem;
       border-radius: 15px;
       text-align: center;
-      animation: metricPulse 3s ease-in-out infinite;
       
-      &:nth-child(2) { animation-delay: 0.5s; }
-      &:nth-child(3) { animation-delay: 1s; }
-      &:nth-child(4) { animation-delay: 1.5s; }
+      .metric-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #3498db;
+      }
       
       .metric-value {
         font-size: 2rem;
         font-weight: bold;
         margin-bottom: 0.5rem;
+        color: #ecf0f1;
       }
       
       .metric-label {
         font-size: 0.9rem;
-        opacity: 0.8;
+        color: #bdc3c7;
       }
     }
   }
 }
 
-// Animações
-@keyframes phoneFloat {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
+/* ===== IMPORT DASHBOARD STYLES ===== */
+@import './dashboard.component.scss';
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes scanPulse {
-  0%, 100% { 
-    transform: scale(1);
-    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
-  }
-  50% { 
-    transform: scale(1.1);
-    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
-  }
-}
-
-@keyframes systemPulse {
-  0%, 100% { 
-    transform: scale(1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
-  50% { 
-    transform: scale(1.02);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  }
-}
-
-@keyframes dataFlow {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-@keyframes packetFloat {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes fadeInOut {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
-
-@keyframes metricPulse {
-  0%, 100% { 
-    transform: scale(1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
-  50% { 
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  }
-}
-
-// Responsividade
+/* Responsividade */
 @media (max-width: 768px) {
   .demo-section {
     padding: 40px 0;
@@ -936,546 +681,22 @@
     transform: rotate(90deg);
     margin: 1rem 0;
   }
-}
-
-// Dashboard ERP Analytics Styles
-.dashboard-demo {
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-  color: white;
   
-  .demo-header {
-    text-align: center;
-    margin-bottom: 2rem;
-    
-    h3 {
-      color: white;
-      margin-bottom: 0.5rem;
+  .delphi-sped-demo {
+    .delphi-workflow {
+      flex-direction: column;
     }
     
-    p {
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 1rem;
+    .delphi-app {
+      min-width: auto;
     }
     
-    .tech-stack {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      
-      .tech-tag {
-        padding: 0.3rem 0.8rem;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        
-        &.angular {
-          background: #dd0031;
-          color: white;
-        }
-        
-        &.django {
-          background: #092e20;
-          color: white;
-        }
-        
-        &.postgres {
-          background: #336791;
-          color: white;
-        }
-      }
-    }
-  }
-  
-  .dashboard-animation {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  // KPI Cards
-  .kpi-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
-    
-    .kpi-card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 15px;
-      padding: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      transition: all 0.3s ease;
-      animation: slideInUp 0.6s ease-out;
-      
-      &:nth-child(1) { animation-delay: 0.1s; }
-      &:nth-child(2) { animation-delay: 0.2s; }
-      &:nth-child(3) { animation-delay: 0.3s; }
-      &:nth-child(4) { animation-delay: 0.4s; }
-      
-      &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      }
-      
-      .kpi-icon {
-        font-size: 2rem;
-        opacity: 0.9;
-      }
-      
-      .kpi-content {
-        flex: 1;
-        
-        .kpi-value {
-          font-size: 1.8rem;
-          font-weight: 700;
-          margin-bottom: 0.3rem;
-          color: #fff;
-        }
-        
-        .kpi-label {
-          font-size: 0.9rem;
-          opacity: 0.8;
-          margin-bottom: 0.5rem;
-        }
-        
-        .kpi-trend {
-          font-size: 0.8rem;
-          font-weight: 600;
-          padding: 0.2rem 0.5rem;
-          border-radius: 10px;
-          
-          &.positive {
-            background: rgba(76, 175, 80, 0.3);
-            color: #4caf50;
-          }
-          
-          &.neutral {
-            background: rgba(255, 193, 7, 0.3);
-            color: #ffc107;
-          }
-        }
-      }
-    }
-  }
-  
-  // Charts Section
-  .charts-section {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    
-    .chart-container {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 15px;
-      padding: 1.5rem;
-      animation: fadeInScale 0.8s ease-out;
-      
-      .chart-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1.5rem;
-        
-        h4 {
-          margin: 0;
-          color: white;
-          font-size: 1.1rem;
-        }
-        
-        .chart-period {
-          display: flex;
-          gap: 0.5rem;
-          
-          .period-btn {
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.1);
-            
-            &.active {
-              background: rgba(255, 255, 255, 0.3);
-              color: white;
-            }
-          }
-        }
-        
-        .status-indicator {
-          padding: 0.3rem 0.8rem;
-          border-radius: 15px;
-          font-size: 0.8rem;
-          font-weight: 600;
-          
-          &.online {
-            background: rgba(76, 175, 80, 0.3);
-            color: #4caf50;
-          }
-        }
-      }
-      
-      .chart-area {
-        .chart-bars {
-          display: flex;
-          align-items: end;
-          justify-content: space-between;
-          height: 150px;
-          margin-bottom: 1rem;
-          gap: 0.5rem;
-          
-          .bar {
-             flex: 1;
-             background: linear-gradient(to top, #2196f3, #64b5f6);
-             border-radius: 5px 5px 0 0;
-             position: relative;
-             animation: barGrow 1.5s ease-out;
-             transition: all 0.3s ease;
-            
-            &:hover {
-              filter: brightness(1.2);
-              transform: scaleY(1.05);
-            }
-            
-            .bar-value {
-              position: absolute;
-              top: -25px;
-              left: 50%;
-              transform: translateX(-50%);
-              font-size: 0.7rem;
-              color: white;
-              opacity: 0;
-              animation: fadeIn 0.5s ease-out 1.5s forwards;
-            }
-          }
-        }
-        
-        .chart-labels {
-          display: flex;
-          justify-content: space-between;
-          font-size: 0.8rem;
-          opacity: 0.8;
-        }
-      }
-      
-      .performance-metrics {
-        .metric-item {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-          margin-bottom: 1rem;
-          
-          .metric-label {
-            flex: 1;
-            font-size: 0.9rem;
-            opacity: 0.9;
-          }
-          
-          .progress-bar {
-            flex: 2;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            overflow: hidden;
-            
-            .progress-fill {
-              height: 100%;
-              border-radius: 10px;
-              transition: width 2s ease-out;
-              
-              &.cpu {
-                 background: linear-gradient(90deg, #1976d2, #1565c0);
-               }
-               
-               &.memory {
-                 background: linear-gradient(90deg, #0288d1, #0277bd);
-               }
-               
-               &.database {
-                 background: linear-gradient(90deg, #03a9f4, #0288d1);
-               }
-               
-               &.api {
-                 background: linear-gradient(90deg, #29b6f6, #039be5);
-               }
-            }
-          }
-          
-          .metric-value {
-            flex: 0 0 60px;
-            text-align: right;
-            font-weight: 600;
-            font-size: 0.9rem;
-          }
-        }
-      }
-    }
-  }
-  
-  // Activity Section
-  .activity-section {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    animation: slideInRight 0.8s ease-out;
-    
-    .activity-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-      
-      h4 {
-        margin: 0;
-        color: white;
-        font-size: 1.1rem;
-      }
-      
-      .activity-status {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.8rem;
-        color: #4caf50;
-        
-        .pulse-dot {
-          width: 8px;
-          height: 8px;
-          background: #4caf50;
-          border-radius: 50%;
-          animation: pulse 2s infinite;
-        }
-      }
+    .database-section {
+      min-width: auto;
     }
     
-    .activity-feed {
-      .activity-item {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding: 0.8rem 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        animation: slideInLeft 0.6s ease-out;
-        
-        &:nth-child(1) { animation-delay: 0.1s; }
-        &:nth-child(2) { animation-delay: 0.2s; }
-        &:nth-child(3) { animation-delay: 0.3s; }
-        &:nth-child(4) { animation-delay: 0.4s; }
-        
-        &:last-child {
-          border-bottom: none;
-        }
-        
-        .activity-icon {
-          width: 40px;
-          height: 40px;
-          background: rgba(255, 255, 255, 0.2);
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.2rem;
-        }
-        
-        .activity-content {
-          flex: 1;
-          
-          .activity-text {
-            font-size: 0.9rem;
-            margin-bottom: 0.3rem;
-          }
-          
-          .activity-time {
-            font-size: 0.8rem;
-            opacity: 0.7;
-          }
-        }
-      }
-    }
-  }
-  
-  // Query Monitor
-  .query-monitor {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    padding: 1.5rem;
-    animation: slideInUp 0.8s ease-out;
-    
-    .monitor-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-      
-      h4 {
-        margin: 0;
-        color: white;
-        font-size: 1.1rem;
-      }
-      
-      .db-status {
-        padding: 0.3rem 0.8rem;
-        border-radius: 15px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        
-        &.healthy {
-          background: rgba(76, 175, 80, 0.3);
-          color: #4caf50;
-        }
-      }
-    }
-    
-    .query-stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 1rem;
-      
-      .stat-item {
-        text-align: center;
-        
-        .stat-label {
-          font-size: 0.8rem;
-          opacity: 0.8;
-          margin-bottom: 0.5rem;
-        }
-        
-        .stat-value {
-           font-size: 1.5rem;
-           font-weight: 700;
-           color: #64b5f6;
-         }
-      }
-    }
-  }
-}
-
-// Animations
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes barGrow {
-  from {
-    height: 0;
-  }
-  to {
-    height: 100%;
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.2);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-// Responsive Design for Dashboard
-@media (max-width: 768px) {
-  .dashboard-demo {
-    .kpi-section {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.8rem;
-      
-      .kpi-card {
-        padding: 1rem;
-        
-        .kpi-icon {
-          font-size: 1.5rem;
-        }
-        
-        .kpi-content .kpi-value {
-          font-size: 1.4rem;
-        }
-      }
-    }
-    
-    .charts-section {
+    .features-grid {
       grid-template-columns: 1fr;
-      gap: 1rem;
-      
-      .chart-container {
-        padding: 1rem;
-        
-        .chart-area .chart-bars {
-          height: 120px;
-        }
-      }
-    }
-    
-    .activity-section,
-    .query-monitor {
-      padding: 1rem;
-    }
-    
-    .query-stats {
-      grid-template-columns: repeat(2, 1fr);
     }
   }
 }
