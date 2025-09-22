@@ -1,0 +1,61 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <linearGradient id="delphiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#F7931E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFD23F;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="documentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#357ABD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dbGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#50C878;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#228B22;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main background circle -->
+  <circle cx="50" cy="50" r="48" fill="url(#delphiGradient)" stroke="#E65100" stroke-width="2"/>
+  
+  <!-- Delphi "D" symbol -->
+  <path d="M25 20 L25 35 Q25 45 35 45 L40 45 Q50 45 50 35 L50 20 Z" fill="white" stroke="#E65100" stroke-width="1.5"/>
+  <path d="M30 25 L30 40 Q30 42 32 42 L38 42 Q45 42 45 35 L45 25" fill="none" stroke="#E65100" stroke-width="2"/>
+  
+  <!-- Document/SPED file representation -->
+  <rect x="55" y="15" width="20" height="25" rx="2" fill="url(#documentGradient)" stroke="#2E5BBA" stroke-width="1"/>
+  <rect x="58" y="18" width="14" height="2" fill="white" opacity="0.8"/>
+  <rect x="58" y="22" width="10" height="1.5" fill="white" opacity="0.6"/>
+  <rect x="58" y="25" width="12" height="1.5" fill="white" opacity="0.6"/>
+  <rect x="58" y="28" width="8" height="1.5" fill="white" opacity="0.6"/>
+  <rect x="58" y="31" width="14" height="1.5" fill="white" opacity="0.6"/>
+  <rect x="58" y="34" width="6" height="1.5" fill="white" opacity="0.6"/>
+  
+  <!-- Database cylinder -->
+  <ellipse cx="35" cy="65" rx="12" ry="4" fill="url(#dbGradient)" stroke="#1F5F1F" stroke-width="1"/>
+  <rect x="23" y="65" width="24" height="12" fill="url(#dbGradient)" stroke="#1F5F1F" stroke-width="1"/>
+  <ellipse cx="35" cy="77" rx="12" ry="4" fill="url(#dbGradient)" stroke="#1F5F1F" stroke-width="1"/>
+  
+  <!-- SQL Server logo elements -->
+  <rect x="26" y="68" width="3" height="6" fill="white" opacity="0.8"/>
+  <rect x="31" y="68" width="3" height="6" fill="white" opacity="0.8"/>
+  <rect x="36" y="68" width="3" height="6" fill="white" opacity="0.8"/>
+  <rect x="41" y="68" width="3" height="6" fill="white" opacity="0.8"/>
+  
+  <!-- Connection arrows -->
+  <path d="M45 30 Q55 35 45 40" fill="none" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M50 50 Q42 55 42 62" fill="none" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+  
+  <!-- Performance/optimization indicators -->
+  <circle cx="70" cy="70" r="8" fill="#FF4444" opacity="0.8"/>
+  <path d="M66 70 L70 66 L74 70 L70 74 Z" fill="white"/>
+  <text x="70" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#333">FAST</text>
+</svg>

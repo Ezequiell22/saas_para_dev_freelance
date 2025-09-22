@@ -10,30 +10,28 @@ export class FooterComponent {
   
   footerLinks = [
     {
+      title: 'Navegação',
+      items: [
+        { label: 'Home', url: '#home' },
+        { label: 'Demonstração', url: '#demo' },
+        { label: 'Contato', url: '#contact' }
+      ]
+    },
+    {
       title: 'Serviços',
       items: [
-        { label: 'Desenvolvimento Web', url: '#servicos' },
-        { label: 'Aplicativos Mobile', url: '#servicos' },
-        { label: 'Soluções Backend', url: '#servicos' },
-        { label: 'Consultoria em TI', url: '#servicos' }
+        { label: 'Desenvolvimento Web', url: '#demo' },
+        { label: 'Aplicativos Mobile', url: '#demo' },
+        { label: 'Soluções Backend', url: '#demo' },
+        { label: 'Dashboards ERP', url: '#demo' }
       ]
     },
     {
-      title: 'Empresa',
+      title: 'Contato',
       items: [
-        { label: 'Sobre Nós', url: '#' },
-        { label: 'Projetos', url: '#projetos' },
-        { label: 'Depoimentos', url: '#' },
-        { label: 'Blog', url: '#' }
-      ]
-    },
-    {
-      title: 'Suporte',
-      items: [
-        { label: 'FAQ', url: '#' },
-        { label: 'Contato', url: '#contato' },
-        { label: 'Política de Privacidade', url: '#' },
-        { label: 'Termos de Serviço', url: '#' }
+        { label: 'Entre em Contato', url: '#contact' },
+        { label: 'WhatsApp', url: '#contact' },
+        { label: 'Email', url: '#contact' }
       ]
     }
   ];

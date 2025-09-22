@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   // Propriedades do componente
   navItems = [
-    { label: 'Serviços', link: '#services' },
-    { label: 'Projetos', link: '#projects' },
+    { label: 'Home', link: '#home' },
+    { label: 'Demonstração', link: '#demo' },
     { label: 'Contato', link: '#contact' }
   ];
 
